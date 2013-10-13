@@ -27,19 +27,21 @@
 		</div>
 		<div class="detail">
 			<div class="contact" data-bind="foreach:detailView">
-				<a class="add delete-user" data-bind="click:$parent.removeContact">-</a>
-				<img src="images/noavatar.png" />
-				<div class="info" data-bind="event: { dblclick: $parent.editContact }">
+				<a class="button delete-user" data-bind="click:$parent.removeContact">-</a>
+				<div class="info">
+					<img src="images/noavatar.png" />
 					<label>Name :</label><input data-bind="value:name, disable:!isedit()"/>
 					<label>Phone :</label><input data-bind="value:phone, disable:!isedit()"/>
 					<label>E-mail :</label><input data-bind="value:email, disable:!isedit()"/>
 					<label>Group :</label><select data-bind="options: $parent.groups, optionsText: 'name',optionsValue: 'id', value: groupid, disable:!isedit()"></select>
 				</div>
+				<a class="button small edit" data-bind="click:$parent.editContact, visible: !isedit()">edit</a>
+				<a class="button small edit" data-bind="click:$parent.editContact, visible: isedit">save</a>
 			</div>
 		</div>
 		<div class="action">
 			<div class="add-new">
-				<input placeholder="add new contact" data-bind="value: name" /><a class="add new-user" data-bind="click: addList">+</a>
+				<input placeholder="button new contact" data-bind="value: name" /><a class="button new-user" data-bind="click: addList">+</a>
 			</div>	
 			<div class="search">
 				<form data-bind="event: { keyup: search}">
